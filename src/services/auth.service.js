@@ -27,7 +27,7 @@ export const loginConLaravel = function (datos){
 }
 
 export const perfil = function (){
-
+    return http().get('/v1/auth/perfil');
 }
 
 export const logout = () => {

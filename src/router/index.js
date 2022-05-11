@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/auth/LoginView.vue'
 import store from '@/store'
+import { Buffer } from "buffer"
 
 const routes = [
   {
@@ -38,6 +39,14 @@ router.beforeEach((to, from, next) => {
     if(store.state.auth != null){
       next();
     }
+
+      let auth = localStorage.getItem("auth");
+      let authJson = JSON.parse(Buffer.from(auth, 'base64').toString('ascii'));
+      if(authJson.access_token){
+        next()
+      }
+    
+
     next("login")
   }
 

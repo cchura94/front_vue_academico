@@ -20,7 +20,7 @@
 
 <script>
 import * as authService from "../../services/auth.service"
-
+import { Buffer } from 'buffer'
 export default {
     data(){
         return {
@@ -33,7 +33,13 @@ export default {
             const res = await authService.loginConLaravel(this.usuario);
             console.log(res)
             this.datos = res.data
+            // codificar
+            const base64 = Buffer.from(JSON.stringify(res.data)).toString('base64');
+            // decodificar
+            // Buffer.from(data, 'base64').toString('ascii');
+            localStorage.setItem("auth", base64)
             this.$store.dispatch('login', res.data)
+
         }
     }
 
