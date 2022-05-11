@@ -1,4 +1,8 @@
 <template>
+    <h1>{{ $store.getters.obtenerContador }}</h1>
+    <h1>{{ $store.state.auth }}</h1>
+    <button @click="$store.dispatch('incremetarContador')">Aumentar contador</button>
+    <hr>
   <h1>Ingresar (login)</h1>
 
   <label for="">Ingrese Correo:</label> <br>
@@ -29,6 +33,7 @@ export default {
             const res = await authService.loginConLaravel(this.usuario);
             console.log(res)
             this.datos = res.data
+            this.$store.dispatch('login', res.data)
         }
     }
 
