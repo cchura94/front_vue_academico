@@ -58,9 +58,9 @@ export default {
           icon: "pi pi-fw pi-sitemap",
           items: [
             {
-              label: "Form Layout",
+              label: "Gestion Carreras",
               icon: "pi pi-fw pi-id-card",
-              to: "/formlayout",
+              to: "/admin/carrera",
             },
             
             /*{ label: "Input", icon: "pi pi-fw pi-check-square", to: "/input" },

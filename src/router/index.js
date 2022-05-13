@@ -4,6 +4,7 @@ import LoginView from '../views/auth/LoginView.vue'
 import store from '@/store'
 import { Buffer } from "buffer"
 import App from './../App.vue'
+import CarreraView from "../views/admin/carrera/CarreraView.vue"
 
 const routes = [
   {
@@ -25,7 +26,12 @@ const routes = [
         // which is lazy-loaded when the route is visited.
         component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue'),
         meta: {requireAuth: true}
-      },      
+      }, 
+      {
+        path: 'carrera',
+        name: 'Carrera',
+        component: CarreraView
+      }     
 
     ]
   },
