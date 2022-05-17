@@ -31,7 +31,7 @@
             <Column field="detalle" header="Detalle"></Column>
             <Column field="materias" header="Materias">                
                 <template #body="{data}">
-                    <Button icon="pi pi-eye" class="p-button-rounded p-button-help" @click="mostrarCarrera(data)" />
+                    <Button icon="pi pi-eye" class="p-button-rounded p-button-help" @click="redireccionar(data.id)"/>
                 </template>
             </Column>
             <Column header="Acciones">                
@@ -51,9 +51,13 @@ import { ref, onMounted } from 'vue';
 import * as carrearService from './../../../services/carrera.service.js'
 import { useConfirm } from "primevue/useconfirm";
 import { useToast } from "primevue/usetoast";
+import { useRouter, useRoute } from 'vue-router'
 
 export default {
     setup(){
+        const router = useRouter()
+        const route = useRoute()
+
         const lista_carreras = ref();
         const displayModal = ref(false);
         const carrera = ref({
@@ -122,7 +126,13 @@ export default {
                 }
             });
         }
-        
+
+        const redireccionar = (id) => {
+           
+            router.push(`/admin/carrera/${id}`)
+        }
+
+
 
         return {
             lista_carreras,
@@ -133,7 +143,8 @@ export default {
             carrera,
             editarModalCarrera,
             edit,
-            eliminar
+            eliminar,
+            redireccionar
         };
     }
 }
