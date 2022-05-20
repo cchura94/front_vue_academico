@@ -6,6 +6,7 @@ import { Buffer } from "buffer"
 import App from './../App.vue'
 import CarreraView from "../views/admin/carrera/CarreraView.vue"
 import MostrarCarreraView from "../views/admin/carrera/MostrarCarreraView.vue"
+import PersonaView from "../views/admin/persona/PersonaView.vue"
 
 const routes = [
   {
@@ -37,6 +38,11 @@ const routes = [
         path: 'carrera/:id',
         name: 'MostrarCarrera',
         component: MostrarCarreraView
+      },
+      {
+        path: 'persona',
+        name: PersonaView,
+        component: PersonaView
       }
 
     ]

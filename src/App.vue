@@ -62,6 +62,11 @@ export default {
               icon: "pi pi-fw pi-id-card",
               to: "/admin/carrera",
             },
+            {
+              label: "Gestion Personas",
+              icon: "pi pi-fw pi-id-card",
+              to: "/admin/persona",
+            },
             
             /*{ label: "Input", icon: "pi pi-fw pi-check-square", to: "/input" },
             {
