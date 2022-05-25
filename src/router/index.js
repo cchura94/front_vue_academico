@@ -7,6 +7,7 @@ import App from './../App.vue'
 import CarreraView from "../views/admin/carrera/CarreraView.vue"
 import MostrarCarreraView from "../views/admin/carrera/MostrarCarreraView.vue"
 import PersonaView from "../views/admin/persona/PersonaView.vue"
+import GestionView from "../views/admin/gestion/GestionView.vue"
 
 const routes = [
   {
@@ -41,8 +42,13 @@ const routes = [
       },
       {
         path: 'persona',
-        name: PersonaView,
+        name: 'PersonaView',
         component: PersonaView
+      },
+      {
+        path: 'gestion',
+        name: 'GestionView',
+        component: GestionView
       }
 
     ]

@@ -58,6 +58,11 @@ export default {
           icon: "pi pi-fw pi-sitemap",
           items: [
             {
+              label: "Gestion",
+              icon: "pi pi-fw pi-id-card",
+              to: "/admin/gestion",
+            },
+            {
               label: "Gestion Carreras",
               icon: "pi pi-fw pi-id-card",
               to: "/admin/carrera",

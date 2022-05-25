@@ -136,7 +136,7 @@ user_id
 
     const listaPersonas = async () => {
         loading.value = true
-        const {data} = await personaService.listar(lazyParams.value.page + 1, lazyParams.value.rows);
+        const {data} = await personaService.listar(1, lazyParams.value.rows);
         personas.value = data.data
         totalRecords.value = data.total
 

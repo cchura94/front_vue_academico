@@ -2,7 +2,7 @@ import { http } from './http'
 
 export function listar(page=1, rows=3){
     // return http().get("/persona/?orderby=id&q=&rows=3&page=1");
-    return http().get(`/persona/?orderby=id&q=&limit=${rows}&page=${page}`);
+    return http().get(`/persona?orderby=id&q=&limit=${rows}&page=${page}`);
 }
 
 export function guardar(datos){
