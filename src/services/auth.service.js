@@ -33,3 +33,7 @@ export const perfil = function (){
 export const logout = () => {
 
 }
+
+export const actualizarPerfil = function(data){
+    return http().post("/user/cambiar-perfil", data)
+}

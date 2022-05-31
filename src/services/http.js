@@ -1,7 +1,8 @@
 import axios from "axios"
 import { Buffer } from "buffer"
 
-const urlbase = "https://sis-academico.herokuapp.com/api";
+export const urlbaseImagen = "https://sis-academico.herokuapp.com";
+export const urlbase = "https://sis-academico.herokuapp.com/api";
 
 export function http(){
 
