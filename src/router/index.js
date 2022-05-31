@@ -8,6 +8,7 @@ import CarreraView from "../views/admin/carrera/CarreraView.vue"
 import MostrarCarreraView from "../views/admin/carrera/MostrarCarreraView.vue"
 import PersonaView from "../views/admin/persona/PersonaView.vue"
 import GestionView from "../views/admin/gestion/GestionView.vue"
+import AsignacionMateria from "../views/admin/materia/AsignacionMateria.vue"
 
 const routes = [
   {
@@ -49,6 +50,11 @@ const routes = [
         path: 'gestion',
         name: 'GestionView',
         component: GestionView
+      },
+      {
+        path: 'asignacion-materias/:id',
+        name: 'AsignacionMatView',
+        component: AsignacionMateria
       }
 
     ]

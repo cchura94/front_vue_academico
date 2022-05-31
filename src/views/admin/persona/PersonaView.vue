@@ -51,6 +51,7 @@
 
             <Column :exportable="false" style="min-width:8rem">
                     <template #body="slotProps">
+                        <Button icon="pi pi-id-card" class="p-button-rounded p-button-primary mr-2" @click="asignacionMateria(slotProps.data)" />
                         <Button icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" @click="editPersona(slotProps.data)" />
                         <Button icon="pi pi-trash" class="p-button-rounded p-button-warning" @click="confirmDeleteProduct(slotProps.data)" />
                     </template>
@@ -99,9 +100,13 @@ import { useToast } from 'primevue/usetoast';
 import { ref, onMounted } from 'vue';
 import * as personaService from "../../../services/persona.service.js"
 import { FilterMatchMode } from 'primevue/api';
+import { useRouter, useRoute } from 'vue-router'
 
 export default {
+
     setup(){
+        const router = useRouter()
+        const route = useRoute()
 
         onMounted(async() => {
             listaPersonas()
@@ -190,6 +195,11 @@ const exportCSV = () => {
             id_edit.value = per.id
         };
 
+        const asignacionMateria = (per) => {
+            router.push(`/admin/asignacion-materias/${per.id}`)
+        }
+
+
         return {
             openNuevo,
             personaDialog,
@@ -203,7 +213,8 @@ const exportCSV = () => {
             onPage,
              dt, loading, totalRecords,
              editPersona,
-             exportCSV
+             exportCSV,
+             asignacionMateria
         }
     }
 

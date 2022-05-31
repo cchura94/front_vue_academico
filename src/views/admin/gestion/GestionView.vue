@@ -2,6 +2,11 @@
   <div class="card">
         <h1>Gestiones</h1>
 
+        <Toast />
+
+        <ConfirmDialog></ConfirmDialog>
+        <Button @click="confirm1()" icon="pi pi-check" label="Confirm" class="mr-2"></Button>
+
         <Button label="Nueva gestion" icon="pi pi-external-link" @click="nuevoGestion()" />
         <Dialog header="Nueva Gestion" v-model:visible="displayModal" :style="{width: '50vw'}" :modal="true">
             
@@ -27,7 +32,8 @@
             <Column field="detalle" header="Detalle"></Column>
             <Column field="estado" header="ESTADO">                
                 <template #body="{data}">
-                    <Button icon="pi pi-eye" class="p-button-rounded p-button-help" @click="redireccionar(data.id)"/>
+                    <Button icon="pi pi-eye" class="p-button-rounded p-button-help" @click="confirm1(data.id)"/>
+                    <Badge v-if="data.estado" value="activo" class="mr-2"></Badge>
                 </template>
             </Column>
             <Column header="Acciones">                
@@ -75,7 +81,25 @@ export default {
         },
         nuevoGestion(){
             this.displayModal = true;
-        }
+        },
+         confirm1(id) {
+            this.$confirm.require({
+                message: 'Está seguro de cambiar la gestion?',
+                header: 'Confirmación',
+                icon: 'pi pi-exclamation-triangle',
+                accept: async () => {
+                    console.log(id)
+                    await gestionService.cambiarGestion(id);
+                    this.$toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
+                    this.listarGestiones()
+                },
+                reject: () => {
+                    console.log(id)
+                    this.$toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+                    this.listarGestiones()
+                }
+            });
+        },
 
     }
 

@@ -19,3 +19,7 @@ export function mostrar(id){
 export function eliminar(){
     return http().delete("/gestion/"+id);
 }
+
+export function cambiarGestion(id){
+    return http().post("/gestion/"+id+"/cambiar-gestion");
+}

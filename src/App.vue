@@ -72,6 +72,11 @@ export default {
               icon: "pi pi-fw pi-id-card",
               to: "/admin/persona",
             },
+            /*{
+              label: "Asignación Materias",
+              icon: "pi pi-fw pi-id-card",
+              to: "/admin/asignacion-materias",
+            },*/
             
             /*{ label: "Input", icon: "pi pi-fw pi-check-square", to: "/input" },
             {

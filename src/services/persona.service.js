@@ -9,7 +9,15 @@ export function guardar(datos){
     return http().post("/persona", datos);
 }
 
+export function mostrar(id){
+    return http().get("/persona/"+id);
+}
+
 
 export function modificar(datos, id){
     return http().put("/persona/"+id, datos);
+}
+
+export function asignarMaterias(datos, id) {
+    return http().post(`/persona/${id}/asignacion-materias`, datos)
 }
